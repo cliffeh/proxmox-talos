@@ -1,0 +1,7 @@
+customization:
+  systemExtensions:
+    officialExtensions:
+      - siderolabs/qemu-guest-agent
+%{ for extension in talos_extensions ~}
+      - ${extension}
+%{ endfor ~}

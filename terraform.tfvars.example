@@ -1,0 +1,42 @@
+# assuming you've set up a terraform@pve user with the appropriate permissions,
+# you can generate this token using `pveum user token add terraform@pve tftoken`
+pve_token_id="terraform@pve!tftoken"
+pve_token_secret="YOUR-SECRET"
+
+pve_api_url = "https://YOUR-PROXMOX-SERVER-FQDN/api2/json"
+
+# if left unset, pve_datastore_id will default to "local" and hostnames will
+# be auto-generated
+pve_controlplane_nodes = [
+  {
+    pve_node_name = "YOUR-PROXMOX-SERVER",
+    # pve_datastore_id = "local",
+    # hostname = "controlplane-1"
+  },
+]
+
+pve_worker_nodes = [
+  {
+    pve_node_name = "YOUR-PROXMOX-SERVER",
+    # pve_datastore_id = "local",
+    # hostname = "worker-1"
+  },
+  {
+    pve_node_name = "YOUR-PROXMOX-SERVER",
+    # pve_datastore_id = "local",
+    # hostname = "worker-2"
+  },
+  {
+    pve_node_name = "YOUR-PROXMOX-SERVER",
+    # pve_datastore_id = "local",
+    # hostname = "worker-3"
+  },
+]
+
+# if left unset, this will default to using the IP address of the first
+# controlplane node created
+# talos_cluster_endpoint = "https://CLUSTER-NAME:6443"
+
+talos_version      = "1.11.3"
+talos_cluster_name = "CLUSTER-NAME"
+# talos_extensions   = ["siderolabs/tailscale"]
