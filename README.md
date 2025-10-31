@@ -26,8 +26,9 @@ pveum aclmod / -user terraform@pve -role Terraform -privsep 0
 pveum user token add terraform@pve tftoken
 ```
 
-Next, copy [terraform.tfvars.example](./terraform.tfvars.example) to
-`terraform.tfvars` and set the following values:
+Next, initialize terraform (`terraform init`), copy
+[terraform.tfvars.example](./terraform.tfvars.example) to `terraform.tfvars` and
+set the following values:
 
 * `pve_token_secret` - the API token generated above (should look like a UUID)
 * `pve_api_url` - the URL for your Proxmox environment's API; this should include
@@ -43,7 +44,6 @@ As you're iterating on these changes you can take a look at what Terraform
 intends to do using:
 
 ```bash
-# terraform init # NB you only need to run this once
 terraform plan
 ```
 
