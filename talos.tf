@@ -132,7 +132,7 @@ data "talos_client_configuration" "this" {
   depends_on           = [talos_machine_bootstrap.this]
   cluster_name         = var.talos_cluster_name
   client_configuration = talos_machine_secrets.this.client_configuration
-  nodes                = local.worker_final_ips
+  nodes                = local.controlplane_final_ips
 }
 
 resource "talos_cluster_kubeconfig" "this" {
