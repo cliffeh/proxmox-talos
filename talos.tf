@@ -133,6 +133,10 @@ data "talos_client_configuration" "this" {
   cluster_name         = var.talos_cluster_name
   client_configuration = talos_machine_secrets.this.client_configuration
   endpoints            = local.controlplane_final_ips
+  nodes = concat(
+    local.controlplane_final_ips,
+    local.worker_final_ips,
+  )
 }
 
 resource "talos_cluster_kubeconfig" "this" {
