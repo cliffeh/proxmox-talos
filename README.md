@@ -1,4 +1,4 @@
-# Proxmox Terraform
+# proxmox-talos
 
 A [Terraform](https://developer.hashicorp.com/terraform) module for creating a
 [Talos Linux](https://www.talos.dev/) cluster of [Proxmox](https://www.proxmox.com/)
